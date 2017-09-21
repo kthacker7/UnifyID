@@ -162,7 +162,15 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
         for path in snapshotPaths {
             imageKeys.append(path.absoluteString)
         }
-        
+        for url in snapshotPaths {
+            if (FileManager.default.fileExists(atPath: url.absoluteString)) {
+                do {
+                    try FileManager.default.removeItem(atPath: url.absoluteString)
+                } catch {
+                    print(error)
+                }
+            }
+        }
     }
 
     @IBAction func takeSnapshot(_ sender: Any) {
