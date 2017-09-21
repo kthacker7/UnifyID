@@ -1,0 +1,15 @@
+Idea.
+
+The way I implemented the given problem was to add a subview to the main screen which shows the live video feed, include two buttons- one to start capture and one to show captured data. 
+
+Once capture button is pressed, it records a video of 5 seconds, following which the app takes a screenshot at every 30 second interval. Following this, the app uses the cocoapod- KeychainSwift to save the images to iOS keychain securely. 
+
+When the user presses view captured data, the user is requested touch id/passlock identification following which he can see the captured images.
+
+Further considerations.
+
+One of the most important things that I would have liked to work on given further time was to optimize the speed of the app. There is a significant delay in converting the captured images to data, storing them in keychain access and retreiving them. Further, I would have liked to add activity indicators while the user waited instead of what seems to be an unresponsive app for a period of time. 
+
+The delay after pressing view snapshots is particularly significant.
+
+Another thing that I would have liked to implement is multiple photosets. As of right now, the app only saves the data and loads the data from the current session. I would have liked to have more time in order to store captures from the previous session which would have involved saving keys to NSUserDefaults.
